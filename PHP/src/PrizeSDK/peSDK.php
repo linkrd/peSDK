@@ -91,12 +91,12 @@ class peSDK {
         return (peError::getErrorCount()) ? true : false;
     }
 
-    public function getLastError() {
-        return peError::getLastError();
+    public function getLastError($lang=null) {
+        return peError::getLastError($lang);
     }
 
-    public function getAllErrors() {
-        return peError::getErrors();
+    public function getAllErrors($lang=null) {
+        return peError::getErrors($lang);
     }
 
     public function flushErrors() {

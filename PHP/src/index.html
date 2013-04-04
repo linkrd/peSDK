@@ -22,6 +22,7 @@
                 <li>promo</li>
                 <li>authkey</li>
                 <li>ttl_seconds (optional)</li>
+                <li>lang (optional - defaults to en_us)</li>
             </ul>
             <p>Set these values in your configuration array, and initialize the class object with the config array. In the case of a configuration error, an exception is thrown.</p>
             <p>Change permissions the folder 'includes/sitecfgs' to be globally read + write + executable (chmod 777 includes/sitecfgs). The configuration variables for your promotion will be stored locally in this directory. The files will be named using your client and promotion values, as such: cfg_$params['client']_$params['promo'].php. You may delete the file to get a new configuration for the promotion. </p>
@@ -173,7 +174,7 @@
                     Gets the last error on the error stack.<br />
                     <ul>
                         <li>usage: $PrizeSDK->getLastError();</li>
-                        <!--<li>params:</li>-->
+                        <li>params: $lang (optional), will use previously set default config lanugage if not provided.</li>
                         <li>returns: [string] Most recent error from stack</li>
                         <!--<li>errors: nothing </li>-->
                     </ul>
@@ -182,7 +183,7 @@
                     Gets an arry of all errors on the error stack.<br />
                     <ul>
                         <li>usage: $PrizeSDK->getAllErrors;</li>
-                        <!--<li>params:</li>-->
+                        <li>params: $lang (optional), will use previously set default config lanugage if not provided.</li>
                         <li>returns: [array] Array of error strong with the most recent error as the first item arr[0]</li>
                         <!--<li>errors: nothing </li>-->
                     </ul>
@@ -315,6 +316,13 @@
                 <li>includes/peClient: wrapper for request model. Formats data for the request to the server.</li>
                 <li>includes/peConfig: fetches, caches and evaluates configuration variables for a promotion.</li>
                 <li>includes/peError: manages error levels and exceptions.</li>
+                
+            </ul>
+            <h2>Language Files</h2>
+            <p>Multilingual games can be done using the language files in the following format.
+            <ul>
+                <li>includes/lang: nls.(encoding_language).php</li>
+                
             </ul>
         </div>
     </body>

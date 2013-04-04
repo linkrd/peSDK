@@ -40,6 +40,10 @@ class peConfig {
         } else {
             peError::getInstance('missing_required_config', peError::CONFIG_ERROR);
         }
+        if (!isset($params['lang'])) {
+            $params['lang']='en_us';
+        }            
+        peError::loadLanguage($params['lang']);
     }
 
     private function _initConfig($params) {
