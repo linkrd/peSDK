@@ -74,7 +74,7 @@
             <p>At a minimum, the SDK requires a username. Depending on your own user system, the business rules of the promotion and the rules required by the prizing contest, you may be required to provide more than a username. The SDK is meant to integrate with a user on your own system. This value must maintain consistency throughout the promotions. If you do not use a login or screen name or your login name does not comply with our system rules (under 25 chars and alphanumeric: 'a-z' '0-9' '-' and '_') or you allow users to change their screen name, you may use your userID as a username or the database index of the user's record. If your promotion does not require business rules regarding plays per user, you may use microtime or another sufficiently unique value for each play.</p>
 
             <p>Please create your own test users to use with the examples provided. If you are not ready to integrate your user system in the provided examples, a good method is to use your client name and a number joined with an underscore, eg.) scai_1328923489. An example of a username for testing follows and is provided in each included example.</p>
-           
+
             <p>
                 <code><pre>
                     if (!isset($_COOKIE['username'])) {
@@ -95,6 +95,38 @@
             </p>
              <p>For the demos, one username, 'demo_infinite_plays' is permitted infinite plays. If you wish to test using this username, be aware, it does not behave like a regular user, and will not be restricted by the rules regarding plays per day. You should test with the user scheme you intend to use in your application.</p>
             <p>The user data is shared between any promotions at a 'client' level, so any users you create and set the profile of, in demosdk-instant will have the same profile data in demosdk-sweeps. When you are ready for your promotion(s) to be set up, we will give you a new 'client' ID and none of the test users will exist in that configuration. </p>
+            <p><h4>User fields, types and lengths</h4>
+                <ul>
+                    <li>[username] [varchar](25) NOT NULL,</li>
+                    <li>[firstname] [varchar](25) NULL,</li>
+                    <li>[lastname] [varchar](25) NULL,</li>
+                    <li>[address] [varchar](50) NULL,</li>
+                    <li>[address2] [varchar](50) NULL,</li>
+                    <li>[city] [varchar](30) NULL,</li>
+                    <li>[state] [varchar](25) NULL,</li>
+                    <li>[country] [varchar](30) NULL,</li>
+                    <li>[zip] [varchar](12) NULL,</li>
+                    <li>[birthdate] [smalldatetime] NULL,</li>
+                    <li>[gender] [varchar](1) NULL,</li>
+                    <li>[title] [varchar](100) NULL,</li>
+                    <li>[company] [varchar](80) NULL,</li>
+                    <li>[day_phone] [varchar](20) NULL,</li>
+                    <li>[evening_phone] [varchar](20) NULL,</li>
+                    <li>[fax_phone] [varchar](20) NULL,</li>
+                    <li>[mobile_email] [varchar](75) NULL,</li>
+                    <li>[alt_email] [varchar](75) NULL,</li>
+                    <li>[answer1] [varchar](50) NULL,</li>
+                    <li>[answer2] [varchar](50) NULL,</li>
+                    <li>[answer3] [varchar](50) NULL,</li>
+                    <li>[answer4] [varchar](50) NULL,</li>
+                    <li>[answer5] [varchar](50) NULL,</li>
+                    <li>[answer6] [varchar](50) NULL,</li>
+                    <li>[answer7] [varchar](50) NULL,</li>
+                    <li>[answer8] [varchar](50) NULL,</li>
+                    <li>[answer9] [varchar](50) NULL,</li>
+                    <li>[answer10] [varchar](50) NULL,</li>
+                </ul>
+            </p>
             <h2>PrizeSDK Functions</h2>
             <h4>Class Constructor</h4>
             <ul>
@@ -319,13 +351,13 @@
                 <li>includes/peClient: wrapper for request model. Formats data for the request to the server.</li>
                 <li>includes/peConfig: fetches, caches and evaluates configuration variables for a promotion.</li>
                 <li>includes/peError: manages error levels and exceptions.</li>
-                
+
             </ul>
             <h2>Language Files</h2>
             <p>Multilingual games can be done using the language files in the following format.
             <ul>
                 <li>includes/lang: nls.(encoding_language).php</li>
-                
+
             </ul>
         </div>
     </body>
