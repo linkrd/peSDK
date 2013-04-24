@@ -49,6 +49,7 @@ class peError {
         switch ($code) {
             case self::REQUEST_ERROR:
             case self::CONFIG_ERROR:
+                $msg = self::getErrorString($nls);
                 throw new Exception($msg);
                 break;
 
@@ -76,7 +77,7 @@ class peError {
     private function getErrorString($nls, $lang=null) {
         self::$lang= (isset($lang))?$lang:self::$lang;
         self::loadLanguage ($lang);
-        
+
         if (isset(self::$_error_list[self::$lang][$nls])) {
             $msg = self::$_error_list[self::$lang][$nls];
         } else {
