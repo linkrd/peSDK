@@ -9,12 +9,6 @@ require_once dirname(__FILE__) . '/peError.php';
  */
 class peRequest {
 
-    private static $_CURL_OPTS = array(
-        CURLOPT_CONNECTTIMEOUT => 10,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT => 60,
-        CURLOPT_USERAGENT => 'SCAi pe PHP SDK v0.1',
-    );
     private static $_use_curl = true;
 
     public function __construct() {
@@ -37,7 +31,13 @@ class peRequest {
     }
 
     private function _do_curl_request($url, $fields) {
-        $opts = self::$_CURL_OPTS;
+        $opts = array(
+            CURLOPT_CONNECTTIMEOUT => 10,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_USERAGENT => 'SCAi pe PHP SDK v0.1',
+        );
+
         $fields_string = http_build_query($fields, null, '&');
         $certificate = dirname(__FILE__) . '/linkrd-curl-ca-bundle.crt';
         //we must check if the certificate exists

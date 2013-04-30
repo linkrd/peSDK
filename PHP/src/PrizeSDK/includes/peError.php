@@ -24,6 +24,7 @@ class peError {
     private static $_errors = array();
 
     public function __construct() {
+        self::loadLanguage ('en_US');
 
     }
     public function loadLanguage ($lang) {
