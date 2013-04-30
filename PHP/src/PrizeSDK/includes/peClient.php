@@ -23,7 +23,7 @@ class peClient extends peRequest {
     private static $authkey;
 
     public function __construct() {
-
+        parent::__construct();
     }
 
     public function getInstance($params = null) {
@@ -43,7 +43,7 @@ class peClient extends peRequest {
     }
 
     public function doaction($action, $userkey, $uservalue, $otherparams) {
-        
+
         $params = self::_buildparams($action, $userkey, $uservalue, $otherparams);
 
         $rv = parent::_send(self::$url, $params);
