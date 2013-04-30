@@ -22,7 +22,7 @@ class peRequest {
             peError::getInstance('missing_curl', peError::REQUEST_ERROR);
         }
         if (!function_exists('json_decode')) {
-            peError::getInstance('missing_curl', peError::REQUEST_ERROR);
+            peError::getInstance('missing_json', peError::REQUEST_ERROR);
         }
     }
 
