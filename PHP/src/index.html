@@ -1,13 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-        <meta name="author" content="SCAinteractive" />
-        <title>SCAi PrizeSDK</title>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>prizeSDK Documentation</title>
+        <link rel="stylesheet" type="text/css" href="pform/view.css" media="all"></link>
+        <script type="text/javascript" src="pform/view.js"></script>
     </head>
-    <body>
+    <body id="main_body" >
+        <img id="top" src="pform/top.png" alt="" />
+        <div id="content_container">
         <h1>SCAi PrizeSDK</h1>
         <div id="bodycontent">
             <h2>About the SDK</h2>
@@ -67,7 +68,7 @@
                 <li><a href="examples/ExampleInstantWin.php">Instant Win Game with One Winning Level (demosdk-instant)</a></li>
                 <li><a href="examples/ExampleInstantWinMulti.php">Instant Win Game with Six Winning Levels (demosdk-instantmulti)</a></li>
                 <li><a href="examples/ExampleProfileUpdateAndHistory.php">Updating a User's Profile and Fetching Game History (demosdk-instantmulti)</a></li>
-
+                <li><a href="http://sdk.scai.com/qa.php">Live QA Example</a></li>
 
             </ul>
             <h2>Required User Data</h2>
@@ -182,6 +183,15 @@
                         <li>errors: Array would be empty, and error would be sent to error stack</li>
                     </ul>
                 </li>
+                <li><b>getEntryPeriod</b><br/>
+                        Gets the entry period data<br />
+                        <ul>
+                            <li>usage: $PrizeSDK->getEntryPeriod();</li>
+                            <!--<li>params:</li>-->
+                            <li>returns: [array] list including dates the contest opens and closes, along with the play period info.</li>
+                            <li>errors: Array would be empty, and error would be sent to error stack</li>
+                        </ul>
+               </li>
             </ul>
 
             <h4>Errors</h4>
@@ -354,11 +364,13 @@
 
             </ul>
             <h2>Language Files</h2>
-            <p>Multilingual games can be done using the language files in the following format.
+            <p>Multilingual games can be done using the language files in the following format.</p>
             <ul>
                 <li>includes/lang: nls.(encoding_language).php</li>
 
             </ul>
+            </div>
         </div>
+        <img id="bottom" src="pform/bottom.png" alt="" />
     </body>
 </html>
