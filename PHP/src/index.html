@@ -33,31 +33,33 @@
             <ul>
                 <li>sweeps:<br />
                     <code><pre>
-                        $config = array(
-                            'contest_adminID' => $_SERVER['SERVER_NAME'],
-                            'client' => 'demosdk',
-                            'promo' => 'sweeps',
-                            'authkey' => 'DEMO-SDK1-1234-5678'
-                        );</pre>
+    $config = array(
+        'contest_adminID' => $_SERVER['SERVER_NAME'],
+        'client' => 'demosdk',
+        'promo' => 'sweeps',
+        'authkey' => 'DEMO-SDK1-1234-5678'
+    );
+                        </pre>
                     </code></li>
                 <li>instant win (one level):<br />
                     <code><pre>
-                        $config = array(
-                            'contest_adminID' => $_SERVER['SERVER_NAME'],
-                            'client' => 'demosdk',
-                            'promo' => 'instant',
-                            'authkey' => 'DEMO-SDK1-1234-5678'
-                        );</pre>
+    $config = array(
+        'contest_adminID' => $_SERVER['SERVER_NAME'],
+        'client' => 'demosdk',
+        'promo' => 'instant',
+        'authkey' => 'DEMO-SDK1-1234-5678'
+    );
+                        </pre>
                     </code></li>
                 <li>instant win (multi level):<br />
                     <code><pre>
-                        $config = array(
-                            'contest_adminID' => $_SERVER['SERVER_NAME'],
-                            'client' => 'demosdk',
-                            'promo' => 'instantmulti',
-                            'authkey' => 'DEMO-SDK1-1234-5678'
-                        );</pre>
-                    </code></li>
+    $config = array(
+        'contest_adminID' => $_SERVER['SERVER_NAME'],
+        'client' => 'demosdk',
+        'promo' => 'instantmulti',
+        'authkey' => 'DEMO-SDK1-1234-5678'
+    );
+                        </pre></code></li>
             </ul>
 
 
@@ -72,7 +74,7 @@
 
             </ul>
             <h2>Required User Data</h2>
-            <p>At a minimum, the SDK requires a username. Depending on your own user system, the business rules of the promotion and the rules required by the prizing contest, you may be required to provide more than a username. The SDK is meant to integrate with a user on your own system. This value must maintain consistency throughout the promotions. If you do not use a login or screen name or your login name does not comply with our system rules (under 25 chars and alphanumeric: 'a-z' '0-9' '-' and '_') or you allow users to change their screen name, you may use your userID as a username or the database index of the user's record. If your promotion does not require business rules regarding plays per user, you may use microtime or another sufficiently unique value for each play.</p>
+            <p>At a minimum, the SDK requires a username. Depending on your own user system, the business rules of the promotion and the rules required by the prizing in the contest, you may be required to provide more than a username. The SDK is meant to integrate with a user on your own system. This value must maintain consistency throughout the promotions. If you do not use a login or screen name or your login name does not comply with our system rules (under 25 chars and alphanumeric: 'a-z' '0-9' '-' and '_') or you allow users to change their screen name, you may use your userID as a username or the database index of the user's record. If your promotion does not require business rules regarding plays per user, you may use microtime or another sufficiently unique value for each play.</p>
 
             <p>Please create your own test users to use with the examples provided. If you are not ready to integrate your user system in the provided examples, a good method is to use your client name and a number joined with an underscore, eg.) scai_1328923489. An example of a username for testing follows and is provided in each included example.</p>
 
@@ -331,7 +333,7 @@
                     <ul>
                         <li>usage: $PrizeSDK->enterSweeps ($user_parameters)</li>
                         <li>params: if not already set, a user parameter array containing at minimum, all required fields </li>
-                        <li>returns: [array] A game object array containing gameID, result_text and other values</li>
+                        <li>returns: [array] A game object array containing gameID, result_text and other values (see example data)</li>
                         <li>errors: Array would be empty and error would be sent to error stack</li>
                     </ul>
                 </li>
@@ -340,7 +342,7 @@
                     <ul>
                         <li>usage: $PrizeSDK->enterInstantWin ($user_parameters)</li>
                         <li>params: if not already set, a user parameter array containing at minimum, all required fields </li>
-                        <li>returns: [array] A game object array containing gameID, result_text and other values</li>
+                        <li>returns: [array] A game object array containing gameID, result_text and other values (see example data)</li>
                         <li>errors: Array would be empty and error would be sent to error stack</li>
                     </ul>
                 </li>
@@ -369,6 +371,32 @@
                 <li>includes/lang: nls.(encoding_language).php</li>
 
             </ul>
+            <h2>Example Game Data</h2>
+            <p>* indicates instant win only</p>
+            <ul>
+                <li>gameID [integer] Unique ID of one game play</li>
+                <li>picks [string] String value of picks made in game</li>
+                <li>rng_conf [hash] hexadecimal hash used to confirm draw values</li>
+                <li>date_issued_long [date] Date of game play</li>
+                <li>date_issued_long [date] Date of game play</li>
+                <li>flash_admin [bool] Game administrator play</li>
+                <li>win_level* [int] Number indicating level of win</li>
+                <li>game_is_winner* [bool] Boolean flag indicating a win or loss (0=loss/1=win)</li>
+                <li>result_text [string] Description of result values</li>
+                <li>result* [string] Winning level over Maximum winning level, eg.) 3/6</li>
+            </ul>
+             <h2>Determining a win on instant win plays</h2>
+            <p>You must have a valid instant win play, where the game_is_winner value is equal to 1, and the win_level and result_text return the expected data relating to prizing.</p>
+            <p>Example to print out the value of the prize in winning result level 6.</p>
+            <code><pre>
+    if ($game = $prizeSDK->enterInstantWin($userdata)) {
+         if ($game['game_is_winner'] == 1) {
+            if ($game['win_level'] == 6) {
+                echo $game['result_text'];
+            }
+         }
+    }
+                </pre></code>
             </div>
         </div>
         <img id="bottom" src="pform/bottom.png" alt="" />
