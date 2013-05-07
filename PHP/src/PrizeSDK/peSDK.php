@@ -76,8 +76,8 @@ class peSDK {
          if (peConfig::isInstantWin()) {
             return peConfig::getPrizingInfo();
          } else {
-             self::newError('instant_wrong_game_type', self::DATA_ERROR);
-             return array ();
+             //self::newError('instant_wrong_game_type', self::DATA_ERROR);
+             return array ('number_of_win_levels' =>0, 'max_win_levels' =>0,'min_win_levels' =>0);
          }
     }
 
