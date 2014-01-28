@@ -60,6 +60,25 @@
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
                         </pre></code></li>
+                              <li>preselect (userPIN is required):<br />
+                    <code><pre>
+    $config = array(
+        'contest_adminID' => $_SERVER['SERVER_NAME'],
+        'client' => 'demosdk',
+        'promo' => 'preselect',
+        'authkey' => 'DEMO-SDK1-1234-5678'
+    );
+                        </pre></code></li>
+                        
+                             <li>preselect2 (picks is required):<br />
+                    <code><pre>
+    $config = array(
+        'contest_adminID' => $_SERVER['SERVER_NAME'],
+        'client' => 'demosdk',
+        'promo' => 'preselect2',
+        'authkey' => 'DEMO-SDK1-1234-5678'
+    );
+                        </pre></code></li>                     
             </ul>
 
 
@@ -96,6 +115,8 @@
                     }</pre>
                 </code>
             </p>
+            <p>If you are using a preselected draw, you will be required to send an additional variable depending upon the type of preselect draw. The variable will be userPIN if all possible values are preloaded, or picks for a number based draw. If you would like to see if a preselected number draw works for you, please try the example configurations, preselect (requires userPIN) and preselect2 (requires picks).</p>
+
              <p>For the demos, one username, 'demo_infinite_plays' is permitted infinite plays. If you wish to test using this username, be aware, it does not behave like a regular user, and will not be restricted by the rules regarding plays per day. You should test with the user scheme you intend to use in your application.</p>
             <p>The user data is shared between any promotions at a 'client' level, so any users you create and set the profile of, in demosdk-instant will have the same profile data in demosdk-sweeps. When you are ready for your promotion(s) to be set up, we will give you a new 'client' ID and none of the test users will exist in that configuration. </p>
             <p><h4>User fields, types and lengths</h4>
@@ -397,6 +418,10 @@
          }
     }
                 </pre></code>
+            <h2>Known Issues</h2>
+            <ul> 
+            <li>If you are using cURL, please ensure the certificate includes/linkrd-curl-ca-bundle.crt is up to date. Instructions for updating the certificate are in includes/how to update ssl cert.txt</li>
+            </ul>
             </div>
         </div>
         <img id="bottom" src="pform/bottom.png" alt="" />
