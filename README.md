@@ -1,11 +1,11 @@
 #About the PrizeSDK#
-=============
+-----
 
 SCAi PrizeSDK can facilitate adding sweepstakes or instant win functionality to a new or existing web application. By integrating the SDK in to your user system, you can give your users the opportunity to win prizes though SCAi's game engine. SCAi's game engine can manage the business rules, such as plays per day, per user and maximum plays for a promotion.
 
 
 ##Configuration##
----------------
+
 Your sales representative with provide you with the following values:
 
 * contest_adminID (your IP or hostname, eg.) $_SERVER['SERVER_NAME'])
@@ -21,55 +21,55 @@ Change permissions the folder 'includes/sitecfgs' to be globally read + write + 
 Also, although it is highly unlikely that the configuration for a game will change while your promotion is running, you may set the ttl_seconds parameter to poll for changes in the configuration on your specified interval. Please be aware that the request to fetch the configuration may cause your script to load slower than usual due to the time it takes to get the configuration. It is not recommended that the ttl value be set for less than one hour (3600).
 
 ##Demo Configurations##
---------------------
+
 - sweeps:
-`
+```
     $config = array(
         'contest_adminID' => $_SERVER['SERVER_NAME'],
         'client' => 'demosdk',
         'promo' => 'sweeps',
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
- `                       
+```                       
 - instant win (one level):
-`
+```
     $config = array(
         'contest_adminID' => $_SERVER['SERVER_NAME'],
         'client' => 'demosdk',
         'promo' => 'instant',
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
- `                       
+```                       
 - instant win (multi level):
-`
+```
     $config = array(
         'contest_adminID' => $_SERVER['SERVER_NAME'],
         'client' => 'demosdk',
         'promo' => 'instantmulti',
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
- `                       
+```                      
 - preselect (userPIN is required):
-`
+```
     $config = array(
         'contest_adminID' => $_SERVER['SERVER_NAME'],
         'client' => 'demosdk',
         'promo' => 'preselect',
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
- `                       
+```                      
 - preselect2 (picks is required):
-`
+```
     $config = array(
         'contest_adminID' => $_SERVER['SERVER_NAME'],
         'client' => 'demosdk',
         'promo' => 'preselect2',
         'authkey' => 'DEMO-SDK1-1234-5678'
     );
- `
+```
                         
 ##Examples##
------------
+
 
 All four examples in the examples folder use one of the three configs above, and generate a fake username which is stored as a session cookie.
 
@@ -83,7 +83,7 @@ Required User Data
 At a minimum, the SDK requires a username. Depending on your own user system, the business rules of the promotion and the rules required by the prizing in the contest, you may be required to provide more than a username. The SDK is meant to integrate with a user on your own system. This value must maintain consistency throughout the promotions. If you do not use a login or screen name or your login name does not comply with our system rules (under 25 chars and alphanumeric: 'a-z' '0-9' '-' and '_') or you allow users to change their screen name, you may use your userID as a username or the database index of the user's record. If your promotion does not require business rules regarding plays per user, you may use microtime or another sufficiently unique value for each play.
 
 Please create your own test users to use with the examples provided. If you are not ready to integrate your user system in the provided examples, a good method is to use your client name and a number joined with an underscore, eg.) scai_1328923489. An example of a username for testing follows and is provided in each included example.
-`
+```
 
                     if (!isset($_COOKIE['username'])) {
 
@@ -99,7 +99,7 @@ Please create your own test users to use with the examples provided. If you are 
                         $username = $_COOKIE['username'];
 
                     }
-`                    
+```                
 If you are using a preselected draw, you will be required to send an additional variable depending upon the type of preselect draw. The variable will be userPIN if all possible values are preloaded, or picks for a number based draw. If you would like to see if a preselected number draw works for you, please try the example configurations, preselect (requires userPIN) and preselect2 (requires picks).
 
 For the demos, one username, 'demo_infinite_plays' is permitted infinite plays. If you wish to test using this username, be aware, it does not behave like a regular user, and will not be restricted by the rules regarding plays per day. You should test with the user scheme you intend to use in your application.
@@ -107,7 +107,7 @@ For the demos, one username, 'demo_infinite_plays' is permitted infinite plays. 
 The user data is shared between any promotions at a 'client' level, so any users you create and set the profile of, in demosdk-instant will have the same profile data in demosdk-sweeps. When you are ready for your promotion(s) to be set up, we will give you a new 'client' ID and none of the test users will exist in that configuration.
 
 User fields, types and lengths
-`
+
 [username] [varchar](25) NOT NULL,
 [firstname] [varchar](25) NULL,
 [lastname] [varchar](25) NULL,
@@ -136,7 +136,7 @@ User fields, types and lengths
 [answer8] [varchar](50) NULL,
 [answer9] [varchar](50) NULL,
 [answer10] [varchar](50) NULL,
-`
+
 
 ##PrizeSDK Functions##
 
@@ -162,22 +162,25 @@ Get the required fields from the configuration values .
 *returns: [array] list of required fields
 *errors: No errors, returns empty array
 
-getAllFields
+**getAllFields**
 Get all possible profile fields from the configuration values .
-usage: $PrizeSDK->getAllFields();
-returns: [array] list of all fields available
-errors: No errors, array would be empty
-getPrizingInfo
+*usage: $PrizeSDK->getAllFields();
+*returns: [array] list of all fields available
+*errors: No errors, array would be empty
+
+**getPrizingInfo**
 Gets the number of prize levels and the minimum and maximum level.
-usage: $PrizeSDK->getPrizingInfo();
-returns: [array] list including number of prize levels and the min and max.
-errors: Array would be empty, and error would be sent to error stack
-getEntryPeriod
+*usage: $PrizeSDK->getPrizingInfo();
+*returns: [array] list including number of prize levels and the min and max.
+*errors: Array would be empty, and error would be sent to error stack
+
+**getEntryPeriod**
 Gets the entry period data
-usage: $PrizeSDK->getEntryPeriod();
-returns: [array] list including dates the contest opens and closes, along with the play period info.
-errors: Array would be empty, and error would be sent to error stack
-Errors
+*usage: $PrizeSDK->getEntryPeriod();
+*returns: [array] list including dates the contest opens and closes, along with the play period info.
+*errors: Array would be empty, and error would be sent to error stack
+
+###Errors###
 
 newError 
 Adds an Error to the Error Stack.
