@@ -108,77 +108,83 @@ The user data is shared between any promotions at a 'client' level, so any users
 
 User fields, types and lengths
 
-[username] [varchar](25) NOT NULL,
-[firstname] [varchar](25) NULL,
-[lastname] [varchar](25) NULL,
-[address] [varchar](50) NULL,
-[address2] [varchar](50) NULL,
-[city] [varchar](30) NULL,
-[state] [varchar](25) NULL,
-[country] [varchar](30) NULL,
-[zip] [varchar](12) NULL,
-[birthdate] [smalldatetime] NULL,
-[gender] [varchar](1) NULL,
-[title] [varchar](100) NULL,
-[company] [varchar](80) NULL,
-[day_phone] [varchar](20) NULL,
-[evening_phone] [varchar](20) NULL,
-[fax_phone] [varchar](20) NULL,
-[mobile_email] [varchar](75) NULL,
-[alt_email] [varchar](75) NULL,
-[answer1] [varchar](50) NULL,
-[answer2] [varchar](50) NULL,
-[answer3] [varchar](50) NULL,
-[answer4] [varchar](50) NULL,
-[answer5] [varchar](50) NULL,
-[answer6] [varchar](50) NULL,
-[answer7] [varchar](50) NULL,
-[answer8] [varchar](50) NULL,
-[answer9] [varchar](50) NULL,
-[answer10] [varchar](50) NULL,
+* [username] [varchar](25) NOT NULL,
+* [firstname] [varchar](25) NULL,
+* [lastname] [varchar](25) NULL,
+* [address] [varchar](50) NULL,
+* [address2] [varchar](50) NULL,
+* [city] [varchar](30) NULL,
+* [state] [varchar](25) NULL,
+* [country] [varchar](30) NULL,
+* [zip] [varchar](12) NULL,
+* [birthdate] [smalldatetime] NULL,
+* [gender] [varchar](1) NULL,
+* [title] [varchar](100) NULL,
+* [company] [varchar](80) NULL,
+* [day_phone] [varchar](20) NULL,
+* [evening_phone] [varchar](20) NULL,
+* [fax_phone] [varchar](20) NULL,
+* [mobile_email] [varchar](75) NULL,
+* [alt_email] [varchar](75) NULL,
+* [answer1] [varchar](50) NULL,
+* [answer2] [varchar](50) NULL,
+* [answer3] [varchar](50) NULL,
+* [answer4] [varchar](50) NULL,
+* [answer5] [varchar](50) NULL,
+* [answer6] [varchar](50) NULL,
+* [answer7] [varchar](50) NULL,
+* [answer8] [varchar](50) NULL,
+* [answer9] [varchar](50) NULL,
+* [answer10] [varchar](50) NULL,
 
 
 ##PrizeSDK Functions##
 
 ###Class Constructor###
 
-new PrizeSDK 
+**new PrizeSDK**
+
 Creates a new SDK object.
-*usage: $PrizeSDK = new peSDK($config);
-*params: an array containing the configuration values
-*returns: [object] a PrizeSDK class object
-*errors: throws an exception
+* usage: $PrizeSDK = new peSDK($config);
+* params: an array containing the configuration values
+* returns: [object] a PrizeSDK class object
+* errors: throws an exception
 
 ###Configuration Data###
 
 **isOpen**
+
 Checks whether or not the contest is open.
-*usage: $PrizeSDK->isOpen();
-*returns: [boolean] true if contest is currently open. false for closed.
+* usage: $PrizeSDK->isOpen();
+* returns: [boolean] true if contest is currently open. false for closed.
 
 **getRequiredFields**
+
 Get the required fields from the configuration values .
-*usage: $PrizeSDK->getRequiredFields();
-*returns: [array] list of required fields
-*errors: No errors, returns empty array
+* usage: $PrizeSDK->getRequiredFields();
+* returns: [array] list of required fields
+* errors: No errors, returns empty array
 
 **getAllFields**
+
 Get all possible profile fields from the configuration values .
-*usage: $PrizeSDK->getAllFields();
-*returns: [array] list of all fields available
-*errors: No errors, array would be empty
+* usage: $PrizeSDK->getAllFields();
+* returns: [array] list of all fields available
+* errors: No errors, array would be empty
 
 **getPrizingInfo**
+
 Gets the number of prize levels and the minimum and maximum level.
-*usage: $PrizeSDK->getPrizingInfo();
-*returns: [array] list including number of prize levels and the min and max.
-*errors: Array would be empty, and error would be sent to error stack
+* usage: $PrizeSDK->getPrizingInfo();
+* returns: [array] list including number of prize levels and the min and max.
+* errors: Array would be empty, and error would be sent to error stack
 
 **getEntryPeriod**
+
 Gets the entry period data
-*usage: $PrizeSDK->getEntryPeriod();
-*returns: [array] list including dates the contest opens and closes, along with the play period info.
-*errors: Array would be empty, and error would be sent to error stack
+* usage: $PrizeSDK->getEntryPeriod();
+* returns: [array] list including dates the contest opens and closes, along with the play period info.
+* errors: Array would be empty, and error would be sent to error stack
 
 ###Errors###
 
