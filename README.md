@@ -224,7 +224,7 @@ Flushes the error stack. All errors are deleted.
 
 For any of the following functions which require the user parameters, you may leave the parameters blank if the user information is already in place. Only the first call requiring the user's information requires the user parameters. User parameters are key/value pairs.
 
-**isAuthenticated **
+**isAuthenticated**
 
 Check if a user has been authenticated by the server.
 * usage: $PrizeSDK->isAuthenticated
@@ -236,7 +236,7 @@ Sets the user paramater array, but does not check the values.
 * usage: $PrizeSDK->setUserParams($user_parameters);
 * params: set the user parameter array
 
-**authenticateOnServer **
+**authenticateOnServer**
 
 Authenticates the user on the server
 * usage: $PrizeSDK->authenticateOnServer ($user_parameters);
@@ -244,14 +244,14 @@ Authenticates the user on the server
 * returns:[boolean] true if user is sucessfully authenticated
 * errors: Error would be sent to error stack
 
-**getCurrentProfileParams **
+**getCurrentProfileParams**
 
 Returns the current parameters in the user's profile as key value pairs
 * usage: $PrizeSDK->getCurrentProfileParams ()
 * returns: [array] keys and values currently set in the user's profiles
 * errors: Array would be empty, and error would be sent to error stack
 
-**getUserProfile **
+**getUserProfile**
 
 Returns the current user profile object with all possible profile fields and their current values
 * usage: $PrizeSDK->getUserProfile ()
@@ -259,7 +259,7 @@ Returns the current user profile object with all possible profile fields and the
 * returns: [array] fields after server update, each field with name, value, and is_required
 * errors: Array would be empty, and error would be sent to error stack
 
-**setUserProfile **
+**setUserProfile**
 
 Updates or sets the User Profile on the server.
 * usage: $PrizeSDK->setUserProfile ($user_parameters)
@@ -269,7 +269,7 @@ Updates or sets the User Profile on the server.
 
 ###Entries and Plays Functions###
 
-**canEnter **
+**canEnter**
 
 Checks to see if the user is currently permitted to play / enter (use either canEnter or nextPlay - not both)
 * usage: $PrizeSDK->canPlay ($user_parameters)
@@ -277,7 +277,7 @@ Checks to see if the user is currently permitted to play / enter (use either can
 * returns: [boolean] returns true if the user is allowed to play
 * errors: null value, and error would be sent to error stack
 
-**nextPlay **
+**nextPlay**
 
 Checks when the user can play next. (use either canEnter or nextPlay - not both) 
 * usage: $PrizeSDK->nextPlay ($user_parameters)
@@ -285,7 +285,7 @@ Checks when the user can play next. (use either canEnter or nextPlay - not both)
 * returns: Formatted date of when a user can play next. '0' in the case that a user can play now.
 * errors: null value, and error would be sent to error stack
 
-**enterSweeps **
+**enterSweeps**
 
 Enter the sweepstakes
 * usage: $PrizeSDK->enterSweeps ($user_parameters)
@@ -293,7 +293,7 @@ Enter the sweepstakes
 * returns: [array] A game object array containing gameID, result_text and other values (see example data)
 * errors: Array would be empty and error would be sent to error stack
 
-**enterInstantWin **
+**enterInstantWin**
 
 Enter instant win
 * usage: $PrizeSDK->enterInstantWin ($user_parameters)
@@ -301,7 +301,7 @@ Enter instant win
 * returns: [array] A game object array containing gameID, result_text and other values (see example data)
 * errors: Array would be empty and error would be sent to error stack
 
-**getUserHistory **
+**getUserHistory**
 
 Get previously played games from this user.
 * usage: $PrizeSDK->getHistory($user_parameters)
