@@ -188,126 +188,162 @@ Gets the entry period data
 
 ###Errors###
 
-newError 
+**newError**
+
 Adds an Error to the Error Stack.
-usage: $PrizeSDK->newError($e, $code);
-params: $e (error flag as defined in Error Class), $code (one of 5 possible error levels)
-hasErrors 
+* usage: $PrizeSDK->newError($e, $code);
+* params: $e (error flag as defined in Error Class), $code (one of 5 possible error levels)
+
+**hasErrors**
+ 
 Indicates if any errors are in the error stack.
-usage: $PrizeSDK->hasErrors();
-returns: [boolean] true if errors are on stack
-getLastError 
+* usage: $PrizeSDK->hasErrors();
+* returns: [boolean] true if errors are on stack
+
+**getLastError**
+ 
 Gets the last error on the error stack.
-usage: $PrizeSDK->getLastError();
-params: $lang (optional), will use previously set default config lanugage if not provided.
-returns: [string] Most recent error from stack
-getAllErrors 
+* usage: $PrizeSDK->getLastError();
+* params: $lang (optional), will use previously set default config lanugage if not provided.
+* returns: [string] Most recent error from stack
+
+**getAllErrors**
+ 
 Gets an arry of all errors on the error stack.
-usage: $PrizeSDK->getAllErrors;
-params: $lang (optional), will use previously set default config lanugage if not provided.
-returns: [array] Array of error strong with the most recent error as the first item arr[0]
-flushErrors 
+* usage: $PrizeSDK->getAllErrors;
+* params: $lang (optional), will use previously set default config lanugage if not provided.
+* returns: [array] Array of error strong with the most recent error as the first item arr[0]
+
+**flushErrors**
+ 
 Flushes the error stack. All errors are deleted.
-usage: $PrizeSDK->flushErrors();
-returns: [array] Empty array
-User Profile Functions
+* usage: $PrizeSDK->flushErrors();
+* returns: [array] Empty array
+
+###User Profile Functions###
 
 For any of the following functions which require the user parameters, you may leave the parameters blank if the user information is already in place. Only the first call requiring the user's information requires the user parameters. User parameters are key/value pairs.
 
-isAuthenticated 
+**isAuthenticated **
+
 Check if a user has been authenticated by the server.
-usage: $PrizeSDK->isAuthenticated
-returns: [boolean] true if a user is authenticated
-setUserParams 
+* usage: $PrizeSDK->isAuthenticated
+* returns: [boolean] true if a user is authenticated
+
+**setUserParams**
+ 
 Sets the user paramater array, but does not check the values.
-usage: $PrizeSDK->setUserParams($user_parameters);
-params: set the user parameter array
-authenticateOnServer 
+* usage: $PrizeSDK->setUserParams($user_parameters);
+* params: set the user parameter array
+
+**authenticateOnServer **
+
 Authenticates the user on the server
-usage: $PrizeSDK->authenticateOnServer ($user_parameters);
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns:[boolean] true if user is sucessfully authenticated
-errors: Error would be sent to error stack
-getCurrentProfileParams 
+* usage: $PrizeSDK->authenticateOnServer ($user_parameters);
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns:[boolean] true if user is sucessfully authenticated
+* errors: Error would be sent to error stack
+
+**getCurrentProfileParams **
+
 Returns the current parameters in the user's profile as key value pairs
-usage: $PrizeSDK->getCurrentProfileParams ()
-returns: [array] keys and values currently set in the user's profiles
-errors: Array would be empty, and error would be sent to error stack
-getUserProfile 
+* usage: $PrizeSDK->getCurrentProfileParams ()
+* returns: [array] keys and values currently set in the user's profiles
+* errors: Array would be empty, and error would be sent to error stack
+
+**getUserProfile **
+
 Returns the current user profile object with all possible profile fields and their current values
-usage: $PrizeSDK->getUserProfile ()
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [array] fields after server update, each field with name, value, and is_required
-errors: Array would be empty, and error would be sent to error stack
-setUserProfile 
+* usage: $PrizeSDK->getUserProfile ()
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [array] fields after server update, each field with name, value, and is_required
+* errors: Array would be empty, and error would be sent to error stack
+
+**setUserProfile **
+
 Updates or sets the User Profile on the server.
-usage: $PrizeSDK->setUserProfile ($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [array] fields after server update, each field with name, value, and is_required
-errors: Array would be empty, and error would be sent to error stack
-Entries and Plays Functions
+* usage: $PrizeSDK->setUserProfile ($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [array] fields after server update, each field with name, value, and is_required
+* errors: Array would be empty, and error would be sent to error stack
 
-canEnter 
+###Entries and Plays Functions###
+
+**canEnter **
+
 Checks to see if the user is currently permitted to play / enter (use either canEnter or nextPlay - not both)
-usage: $PrizeSDK->canPlay ($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [boolean] returns true if the user is allowed to play
-errors: null value, and error would be sent to error stack
-nextPlay 
-Checks when the user can play next. (use either canEnter or nextPlay - not both) 
-usage: $PrizeSDK->nextPlay ($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: Formatted date of when a user can play next. '0' in the case that a user can play now.
-errors: null value, and error would be sent to error stack
-enterSweeps 
-Enter the sweepstakes
-usage: $PrizeSDK->enterSweeps ($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [array] A game object array containing gameID, result_text and other values (see example data)
-errors: Array would be empty and error would be sent to error stack
-enterInstantWin 
-Enter instant win
-usage: $PrizeSDK->enterInstantWin ($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [array] A game object array containing gameID, result_text and other values (see example data)
-errors: Array would be empty and error would be sent to error stack
-getUserHistory 
-Get previously played games from this user.
-usage: $PrizeSDK->getHistory($user_parameters)
-params: if not already set, a user parameter array containing at minimum, all required fields
-returns: [array] An array of game object arrays containing gameID, result_text and other values
-errors: Array would be empty and error would be sent to error stack
-Other Classes
+* usage: $PrizeSDK->canPlay ($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [boolean] returns true if the user is allowed to play
+* errors: null value, and error would be sent to error stack
 
-includes/peRequest: handles communication to and from server via cURL
-includes/peClient: wrapper for request model. Formats data for the request to the server.
-includes/peConfig: fetches, caches and evaluates configuration variables for a promotion.
-includes/peError: manages error levels and exceptions.
-Language Files
+**nextPlay **
+
+Checks when the user can play next. (use either canEnter or nextPlay - not both) 
+* usage: $PrizeSDK->nextPlay ($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: Formatted date of when a user can play next. '0' in the case that a user can play now.
+* errors: null value, and error would be sent to error stack
+
+**enterSweeps **
+
+Enter the sweepstakes
+* usage: $PrizeSDK->enterSweeps ($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [array] A game object array containing gameID, result_text and other values (see example data)
+* errors: Array would be empty and error would be sent to error stack
+
+**enterInstantWin **
+
+Enter instant win
+* usage: $PrizeSDK->enterInstantWin ($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [array] A game object array containing gameID, result_text and other values (see example data)
+* errors: Array would be empty and error would be sent to error stack
+
+**getUserHistory **
+
+Get previously played games from this user.
+* usage: $PrizeSDK->getHistory($user_parameters)
+* params: if not already set, a user parameter array containing at minimum, all required fields
+* returns: [array] An array of game object arrays containing gameID, result_text and other values
+* errors: Array would be empty and error would be sent to error stack
+
+###Other Classes###
+
+*includes/peRequest: handles communication to and from server via cURL
+*includes/peClient: wrapper for request model. Formats data for the request to the server.
+*includes/peConfig: fetches, caches and evaluates configuration variables for a promotion.
+*includes/peError: manages error levels and exceptions.
+
+##Language Files##
 
 Multilingual games can be done using the language files in the following format.
 
 includes/lang: nls.(encoding_language).php
-Example Game Data
 
-* indicates instant win only
 
-gameID [integer] Unique ID of one game play
-picks [string] String value of picks made in game
-rng_conf [hash] hexadecimal hash used to confirm draw values
-date_issued_long [date] Date of game play
-date_issued_long [date] Date of game play
-flash_admin [bool] Game administrator play
-win_level* [int] Number indicating level of win
-game_is_winner* [bool] Boolean flag indicating a win or loss (0=loss/1=win)
-result_text [string] Description of result values
-result* [string] Winning level over Maximum winning level, eg.) 3/6
-Determining a win on instant win plays
+##Example Game Data##
+
+**indicates instant win only**
+
+* gameID [integer] Unique ID of one game play
+* picks [string] String value of picks made in game
+* rng_conf [hash] hexadecimal hash used to confirm draw values
+* date_issued_long [date] Date of game play
+* date_issued_long [date] Date of game play
+* flash_admin [bool] Game administrator play
+* win_level* [int] Number indicating level of win
+* game_is_winner* [bool] Boolean flag indicating a win or loss (0=loss/1=win)
+* result_text [string] Description of result values
+* result* [string] Winning level over Maximum winning level, eg.) 3/6
+
+##Determining a win on instant win plays##
 
 You must have a valid instant win play, where the game_is_winner value is equal to 1, and the win_level and result_text return the expected data relating to prizing.
 
 Example to print out the value of the prize in winning result level 6.
-
+```
     if ($game = $prizeSDK->enterInstantWin($userdata)) {
          if ($game['game_is_winner'] == 1) {
             if ($game['win_level'] == 6) {
@@ -315,7 +351,8 @@ Example to print out the value of the prize in winning result level 6.
             }
          }
     }
+ ```
                 
-Known Issues
+##Known Issues##
 
 If you are using cURL, please ensure the certificate includes/linkrd-curl-ca-bundle.crt is up to date. Instructions for updating the certificate are in includes/how to update ssl cert.txt
