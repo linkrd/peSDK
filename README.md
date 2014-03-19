@@ -108,34 +108,39 @@ The user data is shared between any promotions at a 'client' level, so any users
 
 User fields, types and lengths
 
-* [username] [varchar](25) NOT NULL,
-* [firstname] [varchar](25) NULL,
-* [lastname] [varchar](25) NULL,
-* [address] [varchar](50) NULL,
-* [address2] [varchar](50) NULL,
-* [city] [varchar](30) NULL,
-* [state] [varchar](25) NULL,
-* [country] [varchar](30) NULL,
-* [zip] [varchar](12) NULL,
-* [birthdate] [smalldatetime] NULL,
-* [gender] [varchar](1) NULL,
-* [title] [varchar](100) NULL,
-* [company] [varchar](80) NULL,
-* [day_phone] [varchar](20) NULL,
-* [evening_phone] [varchar](20) NULL,
-* [fax_phone] [varchar](20) NULL,
-* [mobile_email] [varchar](75) NULL,
-* [alt_email] [varchar](75) NULL,
-* [answer1] [varchar](50) NULL,
-* [answer2] [varchar](50) NULL,
-* [answer3] [varchar](50) NULL,
-* [answer4] [varchar](50) NULL,
-* [answer5] [varchar](50) NULL,
-* [answer6] [varchar](50) NULL,
-* [answer7] [varchar](50) NULL,
-* [answer8] [varchar](50) NULL,
-* [answer9] [varchar](50) NULL,
-* [answer10] [varchar](50) NULL,
+   
+| Name          | Type          | Length | Default  |
+| ------------- |:-------------:|:------:| :------: |
+| username      | varchar       | 25     | NOT NULL |
+| firstname     | varchar       | 25     | NULL     |
+| lastname      | varchar       | 25     | NULL     |
+| address       | varchar       | 50     | NULL     |
+| address2      | varchar       | 50     | NULL     |
+| city          | varchar       | 30     | NULL     |
+| state         | varchar       | 25     | NULL     |
+| country       | varchar       | 30     | NULL     |
+| zip           | varchar       | 12     | NULL     |
+| birthdate     | smalldatetime | 25     | NULL     |
+| gender        | varchar       | 1      | NULL     |
+| title         | varchar       | 100    | NULL     |
+| company       | varchar       | 80     | NULL     |
+| day_phone     | varchar       | 20     | NULL     |
+| evening_phone | varchar       | 20     | NULL     |
+| fax_phone     | varchar       | 20     | NULL     |
+| mobile_email  | varchar       | 75     | NULL     |
+| alt_email     | varchar       | 75     | NULL     |
+| answer1       | varchar       | 50     | NULL     |
+| answer2       | varchar       | 50     | NULL     |
+| answer3       | varchar       | 50     | NULL     |
+| answer4       | varchar       | 50     | NULL     |
+| answer5       | varchar       | 50     | NULL     |
+| answer6       | varchar       | 50     | NULL     |
+| answer7       | varchar       | 50     | NULL     |
+| answer8       | varchar       | 50     | NULL     |
+| answer9       | varchar       | 50     | NULL     |
+| answer10      | varchar       | 50     | NULL     |
+
+
 
 
 ##PrizeSDK Functions##
